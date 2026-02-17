@@ -6,8 +6,8 @@
 # Additional static middlewares can be defined here and referenced with @file
 # Example: traefik.http.routers.myrouter.middlewares=my-middleware@file
 
-http:
-  middlewares:
+#http:
+  #middlewares:
     # Example: Custom middleware for specific use cases
     # Add your static middlewares here if needed
 
