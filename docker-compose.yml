@@ -66,6 +66,14 @@ services:
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
       - "traefik.http.routers.traefik-dashboard.middlewares=dashboard-auth"
       - "traefik.http.middlewares.dashboard-auth.basicauth.users=${TRAEFIK_DASHBOARD_USERS}"
+      # Rate limiting middlewares (configurable via environment variables)
+      - "traefik.http.middlewares.rate-limit-global.ratelimit.average=${RATE_LIMIT_AVERAGE:-200}"
+      - "traefik.http.middlewares.rate-limit-global.ratelimit.burst=${RATE_LIMIT_BURST:-400}"
+      - "traefik.http.middlewares.rate-limit-global.ratelimit.period=1s"
+      - "traefik.http.middlewares.rate-limit-api.ratelimit.average=${RATE_LIMIT_API_AVERAGE:-50}"
+      - "traefik.http.middlewares.rate-limit-api.ratelimit.burst=${RATE_LIMIT_API_BURST:-100}"
+      - "traefik.http.middlewares.rate-limit-api.ratelimit.period=1s"
+      # Security headers
       - "traefik.http.middlewares.security-headers.headers.stsSeconds=31536000"
       - "traefik.http.middlewares.security-headers.headers.stsIncludeSubdomains=true"
       - "traefik.http.middlewares.security-headers.headers.stsPreload=true"

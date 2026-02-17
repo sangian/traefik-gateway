@@ -1,4 +1,15 @@
-# Dynamic Traefik Configuration
-# Additional middlewares can be defined here and referenced in docker labels
-# with @file (e.g., traefik.http.routers.myrouter.middlewares=rate-limit@file)
+---
+# Dynamic Traefik Middlewares
+# Rate limiting middlewares are defined in docker-compose.yml labels
+# (environment variable substitution doesn't work in file provider)
+#
+# Additional static middlewares can be defined here and referenced with @file
+# Example: traefik.http.routers.myrouter.middlewares=my-middleware@file
+
+http:
+  middlewares:
+    # Example: Custom middleware for specific use cases
+    # Add your static middlewares here if needed
+
+
 
