@@ -1,0 +1,9 @@
+# Traefik Static Configuration
+# =============================================================================
+# Most configuration is provided via CLI arguments in docker-compose.yml.
+# This file only contains settings that are easier to manage in YAML format.
+# =============================================================================
+
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
