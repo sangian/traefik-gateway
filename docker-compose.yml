@@ -9,7 +9,7 @@ services:
   # This is a security best practice - never expose the Docker socket directly to Traefik
   socket-proxy:
     image: tecnativa/docker-socket-proxy:latest
-    container_name: traefik_socket_proxy
+    container_name: traefik-socket-proxy
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
